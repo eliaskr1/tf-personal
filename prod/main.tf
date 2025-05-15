@@ -3,7 +3,7 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = ">= 4.0"
+      version = ">= 5.4.0"
     }
   }
 }
@@ -15,6 +15,13 @@ provider "google" {
 
 module "firestore" {
   source = "./firestore"
+
+  project_id = var.project_id
+  region     = var.region  
+}
+
+module "firebase" {
+  source = "./firebase"
 
   project_id = var.project_id
   region     = var.region  
